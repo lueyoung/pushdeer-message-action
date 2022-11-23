@@ -39,7 +39,8 @@ class Messager(object):
 
     def send(self):
         url = "https://api2.pushdeer.com/message/push?pushkey=" + self.args.pushkey + "&text=" + self.args.text
-        requests.get(url)
+        #requests.get(url)
+        requests.post(url)
 
 def main():
     m = Messager()
