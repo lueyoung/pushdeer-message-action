@@ -43,10 +43,9 @@ class Messager(object):
 
     def send(self):
         #url = "https://api2.pushdeer.com/message/push?pushkey=" + self.args.pushkey + "&text=" + self.args.text
-        print(type(self.args.pushkey))
         res = requests.get(self.server + self.endpoint, params={
-            "pushkey": self.args.pushkey,
-            "text": self.args.text,
+            "pushkey": str(self.args.pushkey),
+            "text": str(self.args.text),
         })
         print(res.json())
 
