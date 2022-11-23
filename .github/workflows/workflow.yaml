@@ -13,5 +13,5 @@ jobs:
       - name: 'test'
         uses: lueyoung/pushdeer-message-action@master
         with:
-          pushkey: ${{ secrets.SCKEY }}
+          pushkey: ${{ secrets.PUSHKEY }}
           text: "test0x0A"
