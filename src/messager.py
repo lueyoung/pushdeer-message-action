@@ -8,6 +8,9 @@ from utils import str2bool, str2list, str2map
 import requests
 
 class Messager(object):
+    server = "https://api2.pushdeer.com"
+    endpoint = "/message/push"
+
     def __init__(self):
         self.parser = self._create_parser()
         self.args = self.parser.parse_args()
@@ -39,8 +42,7 @@ class Messager(object):
 
     def send(self):
         #url = "https://api2.pushdeer.com/message/push?pushkey=" + self.args.pushkey + "&text=" + self.args.text
-        url = "https://api2.pushdeer.com/message/push"
-        requests.get(url, params={
+        requests.get(self.server + self.endpoint, params={
             "pushkey": self.args.pushkey,
             "text": self.args.text,
         })
