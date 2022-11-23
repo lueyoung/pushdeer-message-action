@@ -37,19 +37,21 @@ class Messager(object):
 
     def run(self):
         if not self.args.enable:
-            print("Please set --enable to make messager work")
+            print("--enable must be specified")
+            return
+        if not self.args.pushkey:
+            print("--pushkey must be specified")
             return
         self.send()
 
     def send(self):
         #url = "https://api2.pushdeer.com/message/push?pushkey=" + self.args.pushkey + "&text=" + self.args.text
-        print(len(self.args.pushkey))
-        print(self.args.pushkey)
         res = requests.get(self.server + self.endpoint, params={
             "pushkey": str(self.args.pushkey),
             "text": str(self.args.text),
+            "desp": str(self.args.desp),
         })
-        print(res.json())
+        #print(res.json())
 
 def main():
     m = Messager()

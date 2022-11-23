@@ -12,8 +12,11 @@ inputs:
     description: "PushDeer key."
     required: true
   text:
-    description: "The content of a message."
+    description: "The title of a message."
     required: true
+  text:
+    description: "The content of a message."
+    default: ""
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -21,3 +24,4 @@ runs:
     - ${{ inputs.enable }}
     - ${{ inputs.pushkey }}
     - ${{ inputs.text }}
+    - ${{ inputs.desp }}
