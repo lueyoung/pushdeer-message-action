@@ -2,6 +2,7 @@
 
 import argparse
 import yaml
+import json
 
 from utils import str2bool, str2list, str2map
 
@@ -42,10 +43,11 @@ class Messager(object):
 
     def send(self):
         #url = "https://api2.pushdeer.com/message/push?pushkey=" + self.args.pushkey + "&text=" + self.args.text
-        requests.get(self.server + self.endpoint, params={
+        res = requests.get(self.server + self.endpoint, params={
             "pushkey": self.args.pushkey,
             "text": self.args.text,
         })
+        print(res.json())
 
 def main():
     m = Messager()
