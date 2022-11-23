@@ -1,0 +1,23 @@
+name: "PushDeer Message Action."
+description: "Send PushDeer message."
+author: "lueyoung"
+branding:
+  icon: "upload-cloud"
+  color: "gray-dark"
+inputs:
+  enable:
+    description: "Enable sending messages."
+    default: true
+  pushkey:
+    description: "PushDeer key."
+    required: true
+  text:
+    description: "The content of a message."
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.enable }}
+    - ${{ inputs.pushkey }}
+    - ${{ inputs.text }}

@@ -1,0 +1,17 @@
+name: 'Test PushDeer message action'
+
+on:
+  push:
+    branches:
+      - master
+      - dev
+
+jobs:
+  test-massager:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: 'test'
+        uses: lueyoung/pushdeer-message-action@master
+        with:
+          pushkey: ${{ secrets.SCKEY }}
+          text: "test0x0A"
