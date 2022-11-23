@@ -14,7 +14,7 @@ inputs:
   text:
     description: "The title of a message."
     required: true
-  text:
+  desp:
     description: "The content of a message."
     default: ""
 runs:
